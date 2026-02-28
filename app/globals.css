@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FDF9F3; /* Warm dough/flour color */
+  --foreground: #2C2621; /* Deep espresso/burnt crust */
+  --primary: #4A5D3F; /* Rich Za'atar green */
+  --accent: #D96E4C; /* Terracotta oven brick red */
+  --secondary: #E8DCCB; /* Sesame seed beige */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
