@@ -27,13 +27,13 @@ export default function Story({ y }: StoryProps) {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
            <h2 className="text-[var(--primary)] font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-6">
-             The Tradition
+             Our Story
            </h2>
           <p className="text-3xl md:text-5xl font-serif text-[var(--foreground)] leading-tight mb-12">
             The secret is in the simplicity. Water, flour, time, and fire. 
           </p>
           <p className="text-lg text-[var(--foreground)]/70 font-light max-w-2xl mx-auto leading-relaxed">
-            At Ãlo Oven, a flatbread is never just a flatbread. It&apos;s a canvas for rich olive oil, deeply aromatic thyme, and melting Akkawi cheese. We preserve the timeless art of the Lebanese Manouche, serving harmony and laughter to the Windsor community since 2025.
+            At Ãlo Oven, we bring the authentic taste of Lebanon to our community with fresh, simple food made the traditional way.Every day we prepare favorites like Manoushe, warm Ka'ak,hearty Foul Medames, and comforting Fatteh using homemade ingredients and time-honored recipes, creating flavors that feel just like home.
           </p>
         </div>
       </section>

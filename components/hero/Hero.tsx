@@ -35,7 +35,7 @@ export default function Hero({ yHero }: HeroProps) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-[var(--foreground)]/80 max-w-md font-light leading-relaxed mb-10"
             >
-              Hand-tossed dough, fresh Za&apos;atar, and roaring stone ovens. The true taste of the Levant, crafted daily in Windsor.
+              Authentic flavors, homemade ingredients, and traditional recipes served warm everyday.
             </motion.p>
             <motion.button 
               initial={{ opacity: 0, y: 20 }}

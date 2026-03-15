@@ -46,7 +46,7 @@ export default function Footer() {
                 <Image src="/images/logo.png" alt="Alo Oven" width={200} height={60} className="w-full h-auto object-contain" />
               </div>
               <p className="text-[#2C2621]/55 font-light text-sm leading-relaxed max-w-xs">
-                Authentic Lebanese flatbread, Za&apos;atar, and savory pies baked fresh daily in Windsor, Ontario.
+Authentic flavors, homemade ingredients, and traditional recipes served warm everyday
               </p>
               {/* Socials */}
               <div className="flex gap-3 pt-2">
@@ -116,8 +116,12 @@ export default function Footer() {
               © {new Date().getFullYear()} Ãlo Oven · All Rights Reserved.
             </p>
             <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#2C2621]/35">
-              Made with <span className="text-[var(--accent)]">❤</span> <Link href="https://www.instagram.com/crafted__by__ak/">
-              by Crafted by AK</Link>
+              Website: <Link href="https://www.instagram.com/crafted__by__ak/">
+              Crafted by AK</Link>
+            </p>
+            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#2C2621]/35">
+             Media by <Link href="https://www.instagram.com/niyazov.productions/">
+              Niyazov Productions</Link>
             </p>
           </div>
 
