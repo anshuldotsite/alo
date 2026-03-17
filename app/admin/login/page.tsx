@@ -70,7 +70,7 @@ export default function AdminLoginPage() {
                 alt="Alo Oven"
                 width={200}
                 height={60}
-                className="w-full h-auto object-contain brightness-0 invert"
+                className="w-full h-auto object-contain"
               />
             </div>
             <div className="text-center">
