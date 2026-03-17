@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import { motion, MotionValue } from "framer-motion";
+import type { HeroContent } from "@/lib/content";
 
 interface HeroProps {
   yHero: MotionValue<number>;
+  hero: HeroContent;
 }
 
-export default function Hero({ yHero }: HeroProps) {
+export default function Hero({ yHero, hero }: HeroProps) {
   return (
     <section id="hero" className="relative w-full min-h-screen flex flex-col justify-center px-4 md:px-12 pt-32 pb-20">
       <div className="flex flex-col md:flex-row items-center justify-between gap-12 max-w-7xl mx-auto w-full z-10">
@@ -19,23 +21,22 @@ export default function Hero({ yHero }: HeroProps) {
               className="text-[var(--accent)] font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-6 flex items-center gap-4"
             >
               <span className="w-12 h-px bg-[var(--accent)] hidden md:block"></span>
-              Authentic Lebanese Bakery
+              {hero.tagline}
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-6xl md:text-8xl font-serif text-[var(--foreground)] leading-[0.9] tracking-tighter mb-8"
-            >
-              Baked with <br/> Fire & Soul.
-            </motion.h1>
+              dangerouslySetInnerHTML={{ __html: hero.headline.replace(/\n/g, '<br/>') }}
+            />
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-[var(--foreground)]/80 max-w-md font-light leading-relaxed mb-10"
             >
-              Authentic flavors, homemade ingredients, and traditional recipes served warm everyday.
+              {hero.subtext}
             </motion.p>
             <motion.button 
               initial={{ opacity: 0, y: 20 }}
@@ -43,7 +44,7 @@ export default function Hero({ yHero }: HeroProps) {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="bg-[var(--primary)] text-white px-8 py-4 font-semibold tracking-wider uppercase text-sm hover:bg-[#384830] transition-colors rounded-tr-2xl rounded-bl-2xl shadow-lg border border-[var(--primary)]"
             >
-              Explore The Menu
+              {hero.ctaLabel}
             </motion.button>
         </div>
 
@@ -63,7 +64,7 @@ export default function Hero({ yHero }: HeroProps) {
           {/* Floating accent badge */}
           <div className="absolute -bottom-6 -left-6 md:-left-12 bg-white p-4 rounded-full shadow-xl flex items-center justify-center border border-[#E8DCCB]">
               <div className="w-24 h-24 border border-dashed border-[var(--accent)] rounded-full flex flex-col items-center justify-center text-[var(--accent)]">
-                <span className="font-serif text-2xl font-bold">2025</span>
+                <span className="font-serif text-2xl font-bold">{hero.estYear}</span>
                 <span className="uppercase text-[8px] tracking-widest font-semibold mt-1">Est.</span>
               </div>
           </div>

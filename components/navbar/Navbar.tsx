@@ -8,6 +8,7 @@ interface NavbarProps {
   scrollTo: (id: string) => void;
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (isOpen: boolean) => void;
+  logoUrl: string;
 }
 
 export default function Navbar({
@@ -17,13 +18,14 @@ export default function Navbar({
   scrollTo,
   isMobileMenuOpen,
   setIsMobileMenuOpen,
+  logoUrl,
 }: NavbarProps) {
   return (
     <>
       <nav className="fixed w-full flex justify-between items-center px-6 md:px-12 py-5 z-50 bg-[#FDF9F3]/95 backdrop-blur-md border-b border-[#2C2621]/10 text-[#2C2621] shadow-sm">
         <div className="w-40 md:w-56 cursor-pointer" onClick={() => scrollTo("hero")}>
           <Image 
-            src="/images/logo.png" 
+            src={logoUrl} 
             alt="Alo Oven" 
             width={200} 
             height={60} 

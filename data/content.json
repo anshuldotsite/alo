@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "tagline": "Authentic Lebanese Bakery",
+    "headline": "Baked with \nFire & Soul.",
+    "subtext": "Authentic flavors, homemade ingredients, and traditional recipes served warm everyday.",
+    "ctaLabel": "Explore The Menu",
+    "estYear": "2025"
+  },
+  "story": {
+    "sectionLabel": "Our Story",
+    "headline": "The secret is in the simplicity. Water, flour, time, and fire.",
+    "body": "At Ãlo Oven, we bring the authentic taste of Lebanon to our community with fresh, simple food made the traditional way. Every day we prepare favorites like Manoushe, warm Ka'ak, hearty Foul Medames, and comforting Fatteh using homemade ingredients and time-honored recipes, creating flavors that feel just like home."
+  },
+  "menu": [
+    {
+      "id": "VRF1EFEGFCA0C",
+      "name": "Za'atar Manouche",
+      "price": 4.99,
+      "desc": "The classic. Dried wild thyme, roasted sesame seeds, sumac, and rich virgin olive oil."
+    },
+    {
+      "id": "N6GBWFTYT1Z06",
+      "name": "Akkawi Cheese",
+      "price": 7.99,
+      "desc": "A melting pool of soft, creamy Levantine cheese with a mild, satisfyingly salty finish."
+    },
+    {
+      "id": "2EACG3D89R8S6",
+      "name": "Lebanese Keshek",
+      "price": 5.99,
+      "desc": "Preserved dried yogurt, crushed wheat, ripe tomatoes, and finely diced onions."
+    },
+    {
+      "id": "KZZBDWMPH8RB8",
+      "name": "Meat Manoushi",
+      "price": 7.99,
+      "desc": "Minced spiced beef blended with fresh tomatoes and onions, baked until crisp and aromatic."
+    },
+    {
+      "id": "BZAAK3PAG6BEY",
+      "name": "Halloumi Cheese",
+      "price": 7.99,
+      "desc": "The delightful combination of salty and savory artisan halloumi, baked to a golden crust."
+    },
+    {
+      "id": "0Z0KG1N3MFS3A",
+      "name": "Muhammara Manoushi",
+      "price": 5.99,
+      "desc": "Diced tomatoes, onions, and our signature traditional sweet and spicy pepper blend."
+    }
+  ],
+  "info": {
+    "address": "2615 Howard Ave.\nWindsor, Ontario",
+    "phone": "519.800.0294",
+    "email": "info@alooven.co",
+    "hours": [
+      {
+        "days": "Mon — Sat",
+        "time": "9:00am – 9:00pm"
+      },
+      {
+        "days": "Sunday",
+        "time": "9:00am – 8:00pm"
+      }
+    ],
+    "facebook": "https://www.facebook.com/alo.oven.2025",
+    "instagram": "https://www.instagram.com/alooven519/"
+  },
+  "theme": {
+    "background": "#FDF9F3",
+    "foreground": "#2C2621",
+    "primary": "#4A5D3F",
+    "accent": "#D96E4C",
+    "secondary": "#E8DCCB",
+    "sansFont": "Outfit",
+    "serifFont": "Cormorant Garamond",
+    "logoUrl": "/images/logo.png"
+  }
+}

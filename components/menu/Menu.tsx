@@ -1,54 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { MenuItem } from "@/lib/content";
 
-export const menuItems = [
-  {
-    id: "VRF1EFEGFCA0C",
-    name: "Za'atar Manouche",
-    price: 4.99,
-    desc: "The classic. Dried wild thyme, roasted sesame seeds, sumac, and rich virgin olive oil.",
-  },
-  {
-    id: "N6GBWFTYT1Z06",
-    name: "Akkawi Cheese",
-    price: 7.99,
-    desc: "A melting pool of soft, creamy Levantine cheese with a mild, satisfyingly salty finish.",
-  },
-  {
-    id: "2EACG3D89R8S6",
-    name: "Lebanese Keshek",
-    price: 5.99,
-    desc: "Preserved dried yogurt, crushed wheat, ripe tomatoes, and finely diced onions.",
-  },
-  {
-    id: "KZZBDWMPH8RB8",
-    name: "Meat Manoushi",
-    price: 7.99,
-    desc: "Minced spiced beef blended with fresh tomatoes and onions, baked until crisp and aromatic.",
-  },
-  {
-    id: "BZAAK3PAG6BEY",
-    name: "Halloumi Cheese",
-    price: 7.99,
-    desc: "The delightful combination of salty and savory artisan halloumi, baked to a golden crust.",
-  },
-  {
-    id: "0Z0KG1N3MFS3A",
-    name: "Muhammara Manoushi",
-    price: 5.99,
-    desc: "Diced tomatoes, onions, and our signature traditional sweet and spicy pepper blend.",
-  }
-];
-
-export type MenuItem = typeof menuItems[0];
+// Re-export MenuItem type for backward compatibility (used by Navbar/cart)
+export type { MenuItem };
 
 interface MenuProps {
   cart: Record<string, { item: MenuItem; quantity: number }>;
   addToCart: (item: MenuItem) => void;
+  menuItems: MenuItem[];
 }
 
-export default function Menu({ cart, addToCart }: MenuProps) {
+export default function Menu({ cart, addToCart, menuItems }: MenuProps) {
   return (
     <section id="menu" className="py-24 px-6 md:px-12 bg-[#2C2621] text-[#FDF9F3] relative">
       <div className="absolute top-0 inset-x-0 h-4 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTAgMjBMMTAgMTBsMTAgMTBIMHoiIGZpbGw9IiNGREY5RjMiLz48L3N2Zz4=')] bg-repeat-x rotate-180"></div>
@@ -64,7 +28,7 @@ export default function Menu({ cart, addToCart }: MenuProps) {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           {menuItems.map((item, i) => (
             <motion.div 
-              key={i}
+              key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}

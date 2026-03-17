@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
 import Link from "next/link";
 import { siFacebook, siInstagram } from "simple-icons";
+import type { InfoContent } from "@/lib/content";
 
 const SimpleIcon = ({ icon, className = "w-5 h-5" }: { icon: { path: string }; className?: string }) => (
   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className={`fill-current ${className}`}>
@@ -9,7 +10,15 @@ const SimpleIcon = ({ icon, className = "w-5 h-5" }: { icon: { path: string }; c
   </svg>
 );
 
-export default function Footer() {
+interface FooterProps {
+  info: InfoContent;
+  logoUrl: string;
+}
+
+export default function Footer({ info, logoUrl }: FooterProps) {
+  // Support multi-line address stored with \n
+  const addressLines = info.address.split("\n");
+
   return (
     <footer id="visit" className="relative overflow-hidden">
 
@@ -27,7 +36,7 @@ export default function Footer() {
         </Marquee>
       </div>
 
-      {/* Main footer body — dark */}
+      {/* Main footer body */}
       <div className="bg-[#FDF9F3] text-[#2C2621] px-6 md:px-12 pt-20 pb-12 border-t border-[#2C2621]/5">
         
         {/* Arabic watermark */}
@@ -43,15 +52,15 @@ export default function Footer() {
             {/* Brand */}
             <div className="flex flex-col space-y-6">
               <div className="w-44">
-                <Image src="/images/logo.png" alt="Alo Oven" width={200} height={60} className="w-full h-auto object-contain" />
+                <Image src={logoUrl} alt="Alo Oven" width={200} height={60} className="w-full h-auto object-contain" />
               </div>
               <p className="text-[#2C2621]/55 font-light text-sm leading-relaxed max-w-xs">
-Authentic flavors, homemade ingredients, and traditional recipes served warm everyday
+                Authentic flavors, homemade ingredients, and traditional recipes served warm everyday
               </p>
               {/* Socials */}
               <div className="flex gap-3 pt-2">
                 <a
-                  href="https://www.facebook.com/alo.oven.2025"
+                  href={info.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-2.5 px-4 py-2.5 border border-[#2C2621]/15 rounded-sm hover:border-[var(--accent)] hover:bg-[var(--accent)] transition-all duration-200 text-[#2C2621]/60 hover:text-white text-xs tracking-wider uppercase font-semibold"
@@ -60,7 +69,7 @@ Authentic flavors, homemade ingredients, and traditional recipes served warm eve
                   <span>Facebook</span>
                 </a>
                 <a
-                  href="https://www.instagram.com/alooven519/"
+                  href={info.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-2.5 px-4 py-2.5 border border-[#2C2621]/15 rounded-sm hover:border-[var(--accent)] hover:bg-[var(--accent)] transition-all duration-200 text-[#2C2621]/60 hover:text-white text-xs tracking-wider uppercase font-semibold"
@@ -76,14 +85,19 @@ Authentic flavors, homemade ingredients, and traditional recipes served warm eve
               <div>
                 <p className="text-[8px] uppercase tracking-[0.3em] text-[var(--accent)] font-semibold mb-3">Find Us</p>
                 <address className="not-italic text-[#2C2621]/70 font-light leading-relaxed">
-                  2615 Howard Ave.<br />Windsor, Ontario
+                  {addressLines.map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      {i < addressLines.length - 1 && <br />}
+                    </span>
+                  ))}
                 </address>
               </div>
               <div>
                 <p className="text-[8px] uppercase tracking-[0.3em] text-[var(--accent)] font-semibold mb-3">Contact</p>
                 <div className="flex flex-col space-y-1 text-[#2C2621]/70 font-light">
-                  <a href="tel:5198000294" className="hover:text-[var(--accent)] transition-colors">519.800.0294</a>
-                  <a href="mailto:info@alooven.co" className="hover:text-[var(--accent)] transition-colors">info@alooven.co</a>
+                  <a href={`tel:${info.phone.replace(/[^0-9]/g, "")}`} className="hover:text-[var(--accent)] transition-colors">{info.phone}</a>
+                  <a href={`mailto:${info.email}`} className="hover:text-[var(--accent)] transition-colors">{info.email}</a>
                 </div>
               </div>
             </div>
@@ -92,14 +106,12 @@ Authentic flavors, homemade ingredients, and traditional recipes served warm eve
             <div>
               <p className="text-[8px] uppercase tracking-[0.3em] text-[var(--accent)] font-semibold mb-5">Hours</p>
               <ul className="space-y-3 text-[#2C2621]/70 font-light text-sm">
-                <li className="flex justify-between gap-8">
-                  <span>Mon — Sat</span>
-                  <span className="text-[#2C2621]/40">9:00am – 9:00pm</span>
-                </li>
-                <li className="flex justify-between gap-8">
-                  <span>Sunday</span>
-                  <span className="text-[#2C2621]/40">9:00am – 8:00pm</span>
-                </li>
+                {info.hours.map((entry, i) => (
+                  <li key={i} className="flex justify-between gap-8">
+                    <span>{entry.days}</span>
+                    <span className="text-[#2C2621]/40">{entry.time}</span>
+                  </li>
+                ))}
               </ul>
               <div className="mt-8 h-px w-full bg-gradient-to-r from-[var(--accent)] via-[#2C2621]/10 to-transparent" />
               <p className="mt-6 text-xs text-[#2C2621]/35 font-light">

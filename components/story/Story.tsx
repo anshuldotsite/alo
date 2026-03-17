@@ -1,12 +1,14 @@
 "use client";
 
 import { motion, MotionValue } from "framer-motion";
+import type { StoryContent } from "@/lib/content";
 
 interface StoryProps {
   y: MotionValue<number>;
+  story: StoryContent;
 }
 
-export default function Story({ y }: StoryProps) {
+export default function Story({ y, story }: StoryProps) {
   return (
     <>
       <div className="w-full h-8 flex justify-center items-center opacity-40">
@@ -27,13 +29,14 @@ export default function Story({ y }: StoryProps) {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
            <h2 className="text-[var(--primary)] font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-6">
-             Our Story
+             {story.sectionLabel}
            </h2>
-          <p className="text-3xl md:text-5xl font-serif text-[var(--foreground)] leading-tight mb-12">
-            The secret is in the simplicity. Water, flour, time, and fire. 
-          </p>
+          <p 
+            className="text-3xl md:text-5xl font-serif text-[var(--foreground)] leading-tight mb-12"
+            dangerouslySetInnerHTML={{ __html: story.headline.replace(/\n/g, '<br/>') }}
+          />
           <p className="text-lg text-[var(--foreground)]/70 font-light max-w-2xl mx-auto leading-relaxed">
-            At Ãlo Oven, we bring the authentic taste of Lebanon to our community with fresh, simple food made the traditional way.Every day we prepare favorites like Manoushe, warm Ka'ak,hearty Foul Medames, and comforting Fatteh using homemade ingredients and time-honored recipes, creating flavors that feel just like home.
+            {story.body}
           </p>
         </div>
       </section>
